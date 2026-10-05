@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Breaktime Arcade</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar"><a class="logo" href="#home">BREAKTIME<span>ARCADE</span></a><nav><span class="points-pill">POINTS <strong id="total-points">0</strong> / 1000</span><button data-screen="home">Games</button><button data-screen="scores">Scores</button></nav></header>
+  <main>
+    <section id="home" class="screen active"><div class="hero"><p class="eyebrow">Student game hub · pick a challenge</p><h1>Play a little.<br /><em>Win a lot.</em></h1><p>Three quick games for between classes. Click a game below to start.</p></div><div class="game-grid">
+      <button class="game-card blue" data-game="tictactoe"><span class="game-icon">◯×</span><span class="card-copy"><small>01 · strategy</small><strong>Tic Tac Toe</strong><span>Get three in a row.</span></span><b>Play →</b></button>
+      <button class="game-card orange" data-game="flappy"><span class="game-icon">◒</span><span class="card-copy"><small>02 · reflex</small><strong>Flappy Birds</strong><span>Fly through the pipes.</span></span><b>Play →</b></button>
+      <button class="game-card purple" data-game="pacman"><span class="game-icon">◕</span><span class="card-copy"><small>03 · arcade</small><strong>Pac-Man</strong><span>Chomp dots. Dodge ghosts.</span></span><b>Play →</b></button>
+      <button class="game-card tetris-card" data-game="tetris" id="tetris-card" hidden><span class="game-icon">▦</span><span class="card-copy"><small>04 · unlocked at 1000 points</small><strong>Tetris</strong><span>Stack. Clear. Repeat.</span></span><b>Play →</b></button>
+      <div class="game-card locked-card" id="tetris-lock"><span class="game-icon">?</span><span class="card-copy"><small>secret game</small><strong>Locked</strong><span>Earn 1000 points to unlock.</span></span><b id="lock-progress">0 / 1000</b></div>
+    </div></section>
+    <section id="game" class="screen"><div class="game-head"><button class="back" data-screen="home">← All games</button><div><p class="eyebrow" id="game-kicker">GAME</p><h2 id="game-title">Game</h2></div><div class="score-pill">SCORE <strong id="score">0</strong></div></div><div id="game-mount"></div></section>
+    <section id="scores" class="screen"><div class="hero compact"><p class="eyebrow">Hall of fame</p><h1>Top <em>scores.</em></h1><p>Your best scores are saved on this device.</p></div><div class="scoreboard" id="scoreboard"></div></section>
+  </main>
+  <footer>Built for breaktime <span>●</span> No accounts. Just games.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
