@@ -4,22 +4,28 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Breaktime Arcade</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&amp;family=Outfit:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="topbar"><a class="logo" href="#home">BREAKTIME<span>ARCADE</span></a><nav><span class="points-pill">POINTS <strong id="total-points">0</strong> / 1000</span><button data-screen="home">Games</button><button data-screen="scores">Scores</button></nav></header>
+  <header class="topbar"><a class="logo" href="#home">Breaktime Arcade</a><nav aria-label="Main navigation"><span class="points-pill">Points <strong id="total-points">0</strong></span><button data-screen="home">Games</button><button data-screen="scores">Scores</button><button data-screen="shop">Shop</button></nav></header>
   <main>
-    <section id="home" class="screen active"><div class="hero"><p class="eyebrow">Student game hub · pick a challenge</p><h1>Play a little.<br /><em>Win a lot.</em></h1><p>Three quick games for between classes. Click a game below to start.</p></div><div class="game-grid">
-      <button class="game-card blue" data-game="tictactoe"><span class="game-icon">◯×</span><span class="card-copy"><small>01 · strategy</small><strong>Tic Tac Toe</strong><span>Get three in a row.</span></span><b>Play →</b></button>
-      <button class="game-card orange" data-game="flappy"><span class="game-icon">◒</span><span class="card-copy"><small>02 · reflex</small><strong>Flappy Birds</strong><span>Fly through the pipes.</span></span><b>Play →</b></button>
-      <button class="game-card purple" data-game="pacman"><span class="game-icon">◕</span><span class="card-copy"><small>03 · arcade</small><strong>Pac-Man</strong><span>Chomp dots. Dodge ghosts.</span></span><b>Play →</b></button>
-      <button class="game-card tetris-card" data-game="tetris" id="tetris-card" hidden><span class="game-icon">▦</span><span class="card-copy"><small>04 · unlocked at 1000 points</small><strong>Tetris</strong><span>Stack. Clear. Repeat.</span></span><b>Play →</b></button>
-      <div class="game-card locked-card" id="tetris-lock"><span class="game-icon">?</span><span class="card-copy"><small>secret game</small><strong>???</strong><span>Earn 1000 points to reveal it.</span></span><b id="lock-progress">0 / 1000</b></div>
+    <section id="home" class="screen active"><div class="hero"><h1>Games</h1></div><div class="game-grid">
+      <button class="game-card blue" data-game="tictactoe"><img class="menu-art" src="images/board-tokens.png" alt="" width="128" height="128" /><span class="card-copy"><small>01 · strategy</small><strong>Tic Tac Toe</strong><span>Place three matching marks in a row.</span></span></button>
+      <button class="game-card orange" data-game="flappy"><img class="menu-art" src="images/flight-plane.png" alt="" width="128" height="128" /><span class="card-copy"><small>02 · reflex</small><strong>Tappy Flight</strong><span>Guide the plane between the obstacles.</span></span></button>
+      <button class="game-card purple" data-game="pacman"><span class="maze-art" aria-hidden="true"></span><span class="card-copy"><small>03 · arcade</small><strong>Pac-Man</strong><span>Collect dots while avoiding the ghosts.</span></span></button>
+      <button class="game-card tetris-card" data-game="tetris" id="tetris-card" hidden><img class="menu-art" src="images/puzzle-block.png" alt="" width="128" height="128" /><span class="card-copy"><small>04 · unlocked at 1000 points</small><strong>Tetris</strong><span>Complete rows by arranging falling blocks.</span></span></button>
+      <div class="game-card locked-card" id="tetris-lock"><span class="card-copy"><small>secret game</small><strong>Locked game</strong><span>This game is available with a balance of 1000 points.</span></span><b id="lock-progress">0 / 1000</b></div>
     </div></section>
-    <section id="game" class="screen"><div class="game-head"><button class="back" data-screen="home">← All games</button><div><p class="eyebrow" id="game-kicker">GAME</p><h2 id="game-title">Game</h2></div><div class="score-pill">SCORE <strong id="score">0</strong></div></div><div id="game-mount"></div></section>
-    <section id="scores" class="screen"><div class="hero compact"><p class="eyebrow">Hall of fame</p><h1>Top <em>scores.</em></h1><p>Your best scores are saved on this device.</p></div><div class="scoreboard" id="scoreboard"></div></section>
+    <section id="game" class="screen"><div class="game-head"><button class="back" data-screen="home">All games</button><div><p class="eyebrow" id="game-kicker">GAME</p><h2 id="game-title">Game</h2></div><div class="score-pill">SCORE <strong id="score">0</strong></div></div><div id="game-mount"></div></section>
+    <section id="scores" class="screen"><div class="hero compact"><h1>Best scores</h1><p>Your best scores are saved on this device.</p></div><div class="scoreboard" id="scoreboard"></div></section>
+    <section id="shop" class="screen" aria-labelledby="shop-title">
+      <div class="hero compact"><h1 id="shop-title">Shop</h1><p>Board colors apply to Tic Tac Toe. Purchases and your selected color are saved on this device.</p></div>
+      <div id="shop-items"></div><p id="shop-status" role="status" aria-live="polite"></p>
+    </section>
   </main>
-  <footer>Built for breaktime <span>●</span> No accounts. Just games.</footer>
   <script src="script.js"></script>
 </body>
 </html>
